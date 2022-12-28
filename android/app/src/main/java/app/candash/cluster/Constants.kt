@@ -126,6 +126,9 @@ object Constants {
     const val lightsOn = 1f
     const val lightsAuto = 0f
     const val limRegen = "limRegen"
+    const val driverOrientation = "driverOrientation"
+    const val LHD = 1f
+    const val RHD = 2f
 
     // Prefs
     const val forceNightMode = "forceNightMode"
@@ -145,6 +148,7 @@ object Constants {
     const val torqueInLbfFt = "torqueInLbfFt"
     const val hideEfficiency = "hideEfficiency"
     const val efficiencyLookBack = "efficiencyLookBack"
+    const val forceRHD = "forceRHD"
 
     // For efficiency history in prefs
     const val kwhHistory = "kwhHistory"

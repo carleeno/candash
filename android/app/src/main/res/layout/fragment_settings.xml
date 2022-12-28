@@ -27,13 +27,13 @@
         <RadioButton
             android:id="@+id/displayauto"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="Automatic" />
 
         <RadioButton
             android:id="@+id/displaydark"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="Dark" />
     </RadioGroup>
 
@@ -46,7 +46,18 @@
         android:text="Gauge Mode"
         android:textSize="18dp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/displaysettings" />
+        app:layout_constraintTop_toBottomOf="@+id/displaysettings" />
+
+    <TextView
+        android:id="@+id/drivingsidelabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:text="Driving Side"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/gaugemode" />
 
     <RadioGroup
         android:id="@+id/gaugemode"
@@ -60,19 +71,19 @@
         <RadioButton
             android:id="@+id/gaugemodefull"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="Full" />
 
         <RadioButton
             android:id="@+id/gaugemoderegular"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="Regular" />
 
         <RadioButton
             android:id="@+id/gaugemodesimple"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="Simple" />
     </RadioGroup>
 
@@ -182,13 +193,13 @@
         <RadioButton
             android:id="@+id/tempUnitC"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="Celsius" />
 
         <RadioButton
             android:id="@+id/tempUnitF"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="Fahrenheit" />
     </RadioGroup>
 
@@ -205,19 +216,19 @@
         <RadioButton
             android:id="@+id/powerUnitKw"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="Kilowatt" />
 
         <RadioButton
             android:id="@+id/powerUnitHp"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="Horsepower" />
 
         <RadioButton
             android:id="@+id/powerUnitPs"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="Metric Horsepower" />
     </RadioGroup>
 
@@ -234,13 +245,13 @@
         <RadioButton
             android:id="@+id/torqueUnitNm"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="Newton-metre" />
 
         <RadioButton
             android:id="@+id/torqueUnitLbf"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="MURICA (lbf⋅ft)" />
     </RadioGroup>
 
@@ -269,5 +280,27 @@
         app:layout_constraintLeft_toRightOf="@id/guidelinevleft"
 
         />
+
+    <RadioGroup
+        android:id="@+id/drivingside"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drivingsidelabel">
+
+        <RadioButton
+            android:id="@+id/handednessauto"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:text="Automatic" />
+
+        <RadioButton
+            android:id="@+id/handednessRHD"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:text="RHD" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

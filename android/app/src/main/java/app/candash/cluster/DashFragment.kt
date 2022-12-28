@@ -283,18 +283,59 @@ class DashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(requireActivity()).get(DashViewModel::class.java)
 
-        // TODO mirror these if RHD market
-        setHorizontalConstraints(
-            listOf(
-                binding.PRND,
-                binding.autopilot,
-                null,
-                binding.battHeat,
-                binding.battCharge,
-                binding.batterypercent,
-                binding.battery
-            )
-        )
+        viewModel.getValue(Constants.driverOrientation)?.let { handedness ->
+            if(handedness == Constants.RHD || prefs.getBooleanPref(Constants.forceRHD)) {
+                setHorizontalConstraints(
+                    listOf(
+                        binding.battery,
+                        binding.batterypercent,
+                        binding.battCharge,
+                        binding.battHeat,
+                        null,
+                        binding.autopilot,
+                        binding.PRND
+                    )
+                )
+            } else {
+                setHorizontalConstraints(
+                    listOf(
+                        binding.PRND,
+                        binding.autopilot,
+                        null,
+                        binding.battHeat,
+                        binding.battCharge,
+                        binding.batterypercent,
+                        binding.battery
+                    )
+                )
+            }
+        } ?: run {
+            if (prefs.getBooleanPref(Constants.forceRHD)) {
+                setHorizontalConstraints(
+                    listOf(
+                        binding.battery,
+                        binding.batterypercent,
+                        binding.battCharge,
+                        binding.battHeat,
+                        null,
+                        binding.autopilot,
+                        binding.PRND
+                    )
+                )
+            } else {
+                setHorizontalConstraints(
+                    listOf(
+                        binding.PRND,
+                        binding.autopilot,
+                        null,
+                        binding.battHeat,
+                        binding.battCharge,
+                        binding.batterypercent,
+                        binding.battery
+                    )
+                )
+            }
+        }
 
         if (!prefs.prefContains(Constants.gaugeMode)) {
             prefs.setPref(Constants.gaugeMode, Constants.showFullGauges)

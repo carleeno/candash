@@ -44,6 +44,11 @@ class SettingsFragment() : Fragment() {
         } else {
             binding.displayauto.isChecked = true
         }
+        if (prefs.getBooleanPref(Constants.forceRHD)) {
+            binding.handednessRHD.isChecked = true
+        } else {
+            binding.handednessauto.isChecked = true
+        }
         when (prefs.getPref(Constants.gaugeMode)) {
             Constants.showFullGauges -> binding.gaugemodefull.isChecked = true
             Constants.showRegularGauges -> binding.gaugemoderegular.isChecked = true
@@ -79,6 +84,10 @@ class SettingsFragment() : Fragment() {
         when (binding.displaysettings.checkedRadioButtonId) {
             R.id.displaydark -> prefs.setBooleanPref(Constants.forceNightMode, true)
             R.id.displayauto -> prefs.setBooleanPref(Constants.forceNightMode, false)
+        }
+        when (binding.drivingside.checkedRadioButtonId) {
+            R.id.handednessRHD -> prefs.setBooleanPref(Constants.forceRHD, true)
+            R.id.handednessauto -> prefs.setBooleanPref(Constants.forceRHD, false)
         }
         when (binding.gaugemode.checkedRadioButtonId) {
             R.id.gaugemodefull -> prefs.setPref(Constants.gaugeMode, Constants.showFullGauges)
